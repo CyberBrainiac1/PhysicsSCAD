@@ -60,12 +60,16 @@ curve_h     = 10;            // mm — max height of curve profile above wafer
 insert_body_w = rail_gap - fit_tolerance * 2;  // mm — insert body width
 
 // Label tab slot (end of frame)
-tab_slot_w  = 12;   // mm — slot width
-tab_slot_h  = 8;    // mm — slot height
-tab_slot_d  = 2;    // mm — slot depth
-tab_w       = tab_slot_w - snap_tol * 2;
-tab_h       = tab_slot_h - snap_tol * 2;
-tab_t       = 10;   // mm — label tab depth (how far it sticks out)
+// Slot is cut into the right wall of the frame:
+//   x: tab_slot_d deep (into the wall)
+//   y: tab_slot_y wide  (fits tab y-dimension)
+//   z: tab_slot_z tall  (fits tab z-dimension, above tile surface)
+tab_slot_y  = 8;    // mm — slot opening width in y direction
+tab_slot_z  = 12;   // mm — slot opening height in z direction (above tile)
+tab_slot_d  = 2;    // mm — slot depth into tile end wall
+tab_w       = tab_slot_y - snap_tol * 2;  // tab body width (y)
+tab_h       = tab_slot_z - snap_tol * 2;  // tab body height (z)
+tab_t       = 10;   // mm — label tab total depth (most sticks out of slot)
 
 // Grid on frame
 show_grid   = true;
@@ -112,8 +116,8 @@ module frame() {
         }
 
         // Label slot at right end of frame
-        translate([tile_w - tab_slot_d, (tile_h - tab_slot_h) / 2, tile_t - 0.1])
-            cube([tab_slot_d + 0.1, tab_slot_h, tab_slot_w]);
+        translate([tile_w - tab_slot_d, (tile_h - tab_slot_y) / 2, tile_t - 0.1])
+            cube([tab_slot_d + 0.1, tab_slot_y, tab_slot_z]);
 
         // Axis label engraved on left end
         translate([2, (tile_h - 6) / 2, tile_t - 0.6])
@@ -187,7 +191,7 @@ module demo_default() {
             curve_insert("gentle");
         // Label tab for x-t
         translate([tile_w - tab_slot_d + 0.2,
-                   (tile_h - tab_w) / 2,
+                   (tile_h - tab_slot_y) / 2 + snap_tol,
                    tile_t])
             label_tab("x-t");
     } else {
@@ -223,7 +227,7 @@ module demo_classroom() {
             translate([3, 4 + rail_w, tile_t - insert_t / 2])
                 curve_insert(curves[i]);
             translate([tile_w - tab_slot_d + 0.2,
-                       (tile_h - tab_w) / 2,
+                       (tile_h - tab_slot_y) / 2 + snap_tol,
                        tile_t])
                 label_tab(labels[i]);
         }

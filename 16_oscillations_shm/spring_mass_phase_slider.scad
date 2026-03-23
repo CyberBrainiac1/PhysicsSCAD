@@ -74,7 +74,8 @@ x_spacing   = 20;
 // Physics helpers
 // --------------------
 // Period at each length:  T = 2*pi*sqrt(L/9810)  (L in mm, g in mm/s²)
-function shm_period(L_mm) = 2 * 3.14159 * sqrt(L_mm / 9810);
+pi = 3.14159265358979;
+function shm_period(L_mm) = 2 * pi * sqrt(L_mm / 9810);
 
 // --------------------
 // Modules

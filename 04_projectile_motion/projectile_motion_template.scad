@@ -69,8 +69,11 @@ x_spacing     = 20;   // mm — spacing between parts in flat mode
 // --------------------
 // Helper: parabolic y at parameter x
 // --------------------
+// v0_mm_ms is the initial speed in mm/ms (≈ mm/s scale used here); 20 mm/ms
+// gives trajectories that fit within the arm_length range at moderate angles.
+v0_mm_ms = 20;  // mm/ms — initial launch speed (scales arch shape with v0_scale)
 function py(x_val, angle) =
-    tan(angle) * x_val - (9.81 / (2 * pow(20 * v0_scale, 2)))
+    tan(angle) * x_val - (9.81 / (2 * pow(v0_mm_ms * v0_scale, 2)))
         * (1 + pow(tan(angle), 2)) * pow(x_val, 2);
 
 // --------------------
