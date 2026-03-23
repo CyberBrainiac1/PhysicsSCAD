@@ -13,11 +13,12 @@ Before writing a single line of OpenSCAD, ask yourself:
 - What physics concept does this model make visible, tangible, or comparable?
 - What would a student do with this model in their hands?
 - What would they notice that they could not notice from a diagram alone?
+- Does holding or manipulating this model help a student **understand** the concept more deeply than reading about it?
 - Does the parametric nature of the model let them explore a relationship (change a variable → see the physics change)?
 
-If you cannot answer all four questions concisely, the model is not ready to be contributed.
+If you cannot answer all five questions concisely, the model is not ready to be contributed.
 
-We are not building physics-themed art. We are building **teaching manipulatives, reference boards, comparison sets, and concept models** designed to make mechanics feel real to a hands-on learner.
+We are not building physics-themed art. We are building **teaching manipulatives, reference boards, comparison sets, and concept models** designed to make mechanics feel real to a hands-on learner. Every object should deepen understanding, not just illustrate it.
 
 ---
 

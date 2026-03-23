@@ -14,6 +14,11 @@ A student or teacher should be able to open any `.scad` file and immediately und
 - What they should do with the printed object
 - How to adjust the model to explore a related variation
 
+Every model must help a student do at least one of the following:
+**see**, **touch**, **compare**, **measure**, **understand**, **explain**, or **connect to robotics**.
+
+"Understand" is a first-class goal. A model that is printable and pretty but does not deepen conceptual understanding does not belong in this repository. Every geometry decision should serve comprehension — the shape itself should make the physics clearer, not just decorate it.
+
 Code that is clever but opaque fails this test. Code that is slightly verbose but immediately clear succeeds. **Prefer clarity over cleverness at every decision point.**
 
 ---

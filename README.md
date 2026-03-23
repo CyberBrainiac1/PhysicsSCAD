@@ -14,6 +14,7 @@ Every model in this repository answers at least one of these questions:
 - What physical idea does this help you **touch**?
 - What physical idea does this help you **compare**?
 - What physical idea does this help you **measure**?
+- What physical idea does this help you **understand**?
 - What physical idea does this help you **explain to someone else**?
 - What physical idea does this help you **connect to robotics**?
 
